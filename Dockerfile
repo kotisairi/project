@@ -1,8 +1,8 @@
-FROM amazonlinux:2
+FROM ubuntu
 MAINTAINER ADDRESS "koteswarao"
-RUN yum update
-RUN yum install httpd -y
+RUN apt update
+RUN apt install apache2 -y
 WORKDIR /var/www/hml
 COPY ./ .
-CMD ["httpd","-D","FOREGROUND"]
+CMD ["apachectl","-D","FOREGROUND"]
 EXPOSE 80
